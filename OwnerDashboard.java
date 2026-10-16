@@ -17,20 +17,17 @@ public class OwnerDashboard extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout(15, 20));
         mainPanel.setBackground(background);
         mainPanel.setBorder(
-            BorderFactory.createEmptyBorder(30, 35, 30, 35)
-        );
+                BorderFactory.createEmptyBorder(30, 35, 30, 35));
 
         JLabel title = new JLabel(
-            "Restaurant Owner Dashboard",
-            SwingConstants.CENTER
-        );
+                "Restaurant Owner Dashboard",
+                SwingConstants.CENTER);
         title.setFont(new Font("Trebuchet MS", Font.BOLD, 28));
         title.setForeground(brown);
 
         JLabel welcome = new JLabel(
-            "Welcome back! Manage your restaurant here.",
-            SwingConstants.CENTER
-        );
+                "Welcome back! Manage your restaurant here.",
+                SwingConstants.CENTER);
 
         JPanel heading = new JPanel(new GridLayout(2, 1, 5, 5));
         heading.setBackground(background);
@@ -41,9 +38,9 @@ public class OwnerDashboard extends JFrame {
         buttonPanel.setBackground(background);
 
         String[] actions = {
-            "Manage Menu",
-            "View Orders",
-            "View Reservations"
+                "Manage Menu",
+                "View Orders",
+                "View Reservations"
         };
 
         for (String action : actions) {
@@ -53,12 +50,18 @@ public class OwnerDashboard extends JFrame {
             button.setForeground(new Color(100, 70, 50));
             button.setFocusPainted(false);
 
-            button.addActionListener(e ->
-                JOptionPane.showMessageDialog(
-                    this,
-                    action + " page will be added next!"
-                )
-            );
+            button.addActionListener(e -> {
+                if (action.equals("Manage Menu")) {
+                    new ManageMenu();
+                    dispose();
+                } else if (action.equals("View Orders")) {
+                    new ViewOrders();
+                    dispose();
+                } else if (action.equals("View Reservations")) {
+                    new ViewReservations();
+                    dispose();
+                }
+            });
 
             buttonPanel.add(button);
         }
@@ -86,4 +89,3 @@ public class OwnerDashboard extends JFrame {
         SwingUtilities.invokeLater(() -> new OwnerDashboard());
     }
 }
-

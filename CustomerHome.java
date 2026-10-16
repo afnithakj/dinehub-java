@@ -38,13 +38,12 @@ public class CustomerHome extends JFrame {
         JPanel buttonPanel = new JPanel(new GridLayout(5, 1, 12, 12));
         buttonPanel.setBackground(background);
 
-        String[] actions = {
-            "View Menu",
-            "Place Order",
-            "Book a Table",
-            "Order History",
-            "My Profile"
-        };
+       String[] actions = {
+    "View Menu",
+    "Place Order",
+    "Book a Table",
+    "My Profile"
+};
 
         for (String action : actions) {
             JButton button = new JButton(action);
